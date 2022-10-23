@@ -1,0 +1,9 @@
+steps:
+  # Install dependencies
+  - name: python
+    entrypoint: pip
+    args: ["install", "-r", "requirements.txt", "--user"]
+    dir: 'function'
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['functions', 'deploy', 'cicd-function', '--trigger-http', '--runtime', 'python310', '--entry-point', 'hello_world']
+    dir: 'function'
