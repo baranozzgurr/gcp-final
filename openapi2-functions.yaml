@@ -1,0 +1,22 @@
+---
+swagger: '2.0'
+info:
+  title: test-name-spec
+  description: Sample API on API Gateway with a Google Cloud Functions backend
+  version: 1.0.0
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /ip:
+    get:
+      summary: show ip
+      operationId: ip
+      x-google-backend:
+        address: https://us-central1-assesment1.cloudfunctions.net/backend-function
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
